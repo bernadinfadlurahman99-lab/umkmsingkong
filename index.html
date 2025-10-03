@@ -5,43 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UMKM Singkong Taruna Jaya</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <header>
     <h1>UMKM Singkong Taruna Jaya</h1>
     <nav>
-      <a href="#" onclick="showSection('home')">Tentang</a>
-      <a href="#" onclick="showSection('katalog')">Katalog</a>
-      <a href="#" onclick="showSection('pesan')">Pemesanan</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#pesan">Pemesanan</a>
     </nav>
   </header>
 
-  <!-- Tentang Kami -->
-  <section id="home" class="active">
+  <section id="tentang">
     <h2>Tentang Kami</h2>
-    <img src="images/keripik.jpg" alt="Banner UMKM" class="banner">
-    <p>
-      UMKM Taruna Jaya memproduksi berbagai olahan singkong berkualitas, 
-      mulai dari keripik singkong, getuk, hingga tape singkong. 
-      Produk kami dibuat dari bahan segar pilihan, tanpa bahan pengawet, 
-      sehingga aman dan nikmat untuk dikonsumsi.
-    </p>
+    <p>Kami memproduksi berbagai olahan singkong berkualitas, tanpa bahan pengawet.</p>
   </section>
 
-  <!-- Katalog Produk -->
   <section id="katalog">
     <h2>Katalog Produk</h2>
-    <div class="produk-container" id="produkList"></div>
+    <div class="produk-container">
+      <div class="produk">
+        <img src="images/keripik.jpg" alt="Keripik Singkong">
+        <h3>Keripik Singkong</h3>
+        <p>Renyah, gurih, cocok untuk camilan harian.</p>
+        <span class="harga">Rp 15.000</span>
+      </div>
+      <div class="produk">
+        <img src="images/getuk.jpg" alt="Getuk Singkong">
+        <h3>Getuk Singkong</h3>
+        <p>Manis dan lembut, cocok sebagai hidangan keluarga.</p>
+        <span class="harga">Rp 10.000</span>
+      </div>
+      <div class="produk">
+        <img src="images/tape.jpg" alt="Tape Singkong">
+        <h3>Tape Singkong</h3>
+        <p>Manis sedikit asam, segar dan sehat.</p>
+        <span class="harga">Rp 12.000</span>
+      </div>
+    </div>
   </section>
 
-  <!-- Pemesanan -->
   <section id="pesan">
-    <h2>Pemesanan Online</h2>
-    <form id="formPesan">
-      <input type="text" id="nama" placeholder="Nama Anda" required>
-      <input type="text" id="produk" placeholder="Produk yang dipesan" required>
-      <input type="number" id="jumlah" placeholder="Jumlah Pesanan" required>
+    <h2>Pemesanan</h2>
+    <form>
+      <input type="text" placeholder="Nama Anda" required>
+      <input type="text" placeholder="Produk yang dipesan" required>
+      <input type="number" placeholder="Jumlah" required>
       <button type="submit">Pesan Sekarang</button>
     </form>
   </section>
@@ -49,72 +58,5 @@
   <footer>
     <p>&copy; 2025 UMKM Singkong Taruna Jaya</p>
   </footer>
-
-  <script>
-    // Ganti halaman
-    function showSection(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-
-    // Data Produk (pakai gambar lokal dari folder images)
-    const produkData = [
-      {
-        nama: "Keripik Singkong",
-        deskripsi: "Renyah, gurih, cocok untuk camilan harian.",
-        harga: "Rp 15.000",
-        gambar: "images/keripik.jpg"
-      },
-      {
-        nama: "Getuk Singkong",
-        deskripsi: "Manis dan lembut, cocok sebagai hidangan keluarga.",
-        harga: "Rp 10.000",
-        gambar: "images/getuk.jpg"
-      },
-      {
-        nama: "Tape Singkong",
-        deskripsi: "Manis sedikit asam, segar dan sehat.",
-        harga: "Rp 12.000",
-        gambar: "images/tape.jpg"
-      }
-    ];
-
-    // Render Produk
-    const produkList = document.getElementById("produkList");
-    produkData.forEach(item => {
-      produkList.innerHTML += `
-        <div class="produk">
-          <img src="${item.gambar}" alt="${item.nama}">
-          <h3>${item.nama}</h3>
-          <p>${item.deskripsi}</p>
-          <span class="harga">${item.harga}</span><br>
-          <button onclick="pesanProduk('${item.nama}')">Beli Sekarang</button>
-        </div>
-      `;
-    });
-
-    // Auto isi produk di form
-    function pesanProduk(namaProduk) {
-      showSection("pesan");
-      document.getElementById("produk").value = namaProduk;
-    }
-
-    // Handle Form
-    document.getElementById("formPesan").addEventListener("submit", function(e){
-      e.preventDefault();
-      let nama = document.getElementById("nama").value;
-      let produk = document.getElementById("produk").value;
-      let jumlah = document.getElementById("jumlah").value;
-
-      Swal.fire({
-        title: "Pesanan Berhasil!",
-        html: `<b>${nama}</b>, pesanan <b>${produk}</b> sebanyak <b>${jumlah}</b> berhasil dicatat.`,
-        icon: "success",
-        confirmButtonText: "OK"
-      });
-      this.reset();
-    });
-  </script>
 </body>
 </html>
-
