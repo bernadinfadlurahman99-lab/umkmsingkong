@@ -1,151 +1,75 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 body {
-  background: #fdfcfb;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
   color: #333;
-  line-height: 1.6;
-  animation: fadeIn 1.2s ease-in;
 }
 
-/* Header */
 header {
-  background: linear-gradient(135deg, #ff9800, #f57c00);
+  background: #28a745;
   color: white;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
-  animation: slideDown 1s ease-out;
-}
-
-header h1 {
-  margin-bottom: 10px;
 }
 
 nav a {
   color: white;
-  margin: 0 15px;
+  margin: 0 10px;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
 }
 
-nav a:hover {
-  color: #ffd54f;
-}
-
-/* Section umum */
 section {
-  padding: 50px 20px;
-  text-align: center;
-  animation: fadeUp 1s ease-out;
+  padding: 40px 20px;
 }
 
-h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #e65100;
-}
-
-/* Katalog */
 .produk-container {
   display: flex;
-  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .produk {
-  background: #fff3e0;
-  padding: 20px;
-  border-radius: 15px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
   width: 250px;
+  text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.produk:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .produk img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .harga {
-  display: block;
-  margin-top: 10px;
   font-weight: bold;
-  color: #d84315;
-  font-size: 1.1rem;
+  color: #28a745;
 }
 
-/* Form */
 form {
+  max-width: 400px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 400px;
-  margin: 0 auto;
-  animation: slideUp 1.2s ease-out;
+  gap: 10px;
 }
 
 form input, form button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  font-size: 1rem;
 }
 
 form button {
-  background: #ff9800;
+  background: #28a745;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
 }
-
 form button:hover {
-  background: #e65100;
+  background: #218838;
 }
-
-/* Footer */
-footer {
-  background: #f57c00;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
-}
-
-/* Animasi */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(80px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
