@@ -5,173 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UMKM Singkong Taruna Jaya</title>
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: Arial, sans-serif; line-height:1.6; background:#fff; color:#333;}
+    header {background:#ff7f50; color:#fff; padding:15px 20px; position:sticky; top:0; z-index:1000;}
+    header h1 {font-size:20px;}
+    nav {display:flex; justify-content:flex-end; align-items:center;}
+    nav a {margin:0 10px; text-decoration:none; color:#fff; font-weight:bold;}
+    nav a:hover {color:#ffe066;}
+
+    /* hamburger */
+    .menu-toggle {display:none; flex-direction:column; cursor:pointer;}
+    .bar {height:3px; width:25px; background:#fff; margin:4px 0;}
+
+    @media (max-width:768px) {
+      nav {display:none; flex-direction:column; background:#ff7f50; width:100%; text-align:center;}
+      nav.active {display:flex;}
+      .menu-toggle {display:flex; position:absolute; right:20px; top:20px;}
     }
 
-    body {
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+    .hero {
+      background:url('images/banner.jpg') no-repeat center/cover;
+      height:70vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; color:#fff; padding:20px;
     }
+    .hero h2 {font-size:36px; text-shadow:2px 2px 5px rgba(0,0,0,0.6);}
+    .hero p {font-size:18px; margin-top:10px; text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
 
-    header {
-      background: #ff9800;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    section {padding:50px 20px; max-width:1100px; margin:auto;}
+    h2 {color:#ff7f50; margin-bottom:20px; text-align:center;}
 
-    header h1 {
-      margin-bottom: 10px;
-      font-size: 28px;
-      letter-spacing: 1px;
+    /* produk */
+    .produk-container {display:flex; gap:20px; flex-wrap:wrap; justify-content:center;}
+    .produk {background:#fff; border:1px solid #ddd; border-radius:10px; padding:15px; width:250px;
+             text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:transform 0.3s;}
+    .produk:hover {transform:scale(1.05);}
+    .produk img {width:100%; border-radius:10px;}
+    .harga {color:#28a745; font-weight:bold; margin:10px 0;}
+    .btn-wa {
+      display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px;
+      text-decoration:none; font-weight:bold; transition:0.3s;
     }
+    .btn-wa:hover {background:#20b857;}
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+    /* form */
+    form {display:flex; flex-direction:column; gap:10px; max-width:400px; margin:auto;}
+    input, button {
+      padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px;
     }
+    button {background:#25D366; color:#fff; cursor:pointer; border:none;}
+    button:hover {background:#20b857;}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    section h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #ff5722;
-    }
-
-    /* Tentang */
-    #tentang p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 18px;
-    }
-
-    /* Katalog */
-    .produk-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .produk {
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .produk:hover {
-      transform: translateY(-5px);
-    }
-
-    .produk img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .produk h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .produk p {
-      font-size: 14px;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .harga {
-      display: block;
-      font-weight: bold;
-      color: #ff5722;
-      font-size: 18px;
-    }
-
-    /* Pemesanan */
-    form {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    form input, form button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 16px;
-    }
-
-    form button {
-      background: #ff9800;
-      color: white;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    form button:hover {
-      background: #e68900;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
+    footer {background:#333; color:#fff; text-align:center; padding:20px;}
+    footer a {color:#25D366; margin:0 5px; text-decoration:none;}
   </style>
 </head>
 <body>
   <header>
     <h1>UMKM Singkong Taruna Jaya</h1>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav id="navbar">
       <a href="#tentang">Tentang</a>
       <a href="#katalog">Katalog</a>
       <a href="#pesan">Pemesanan</a>
     </nav>
   </header>
 
-  <!-- TENTANG -->
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h2>Olahan Singkong Taruna Jaya</h2>
+      <p>Nikmat, sehat, dan harga bersahabat 🍠</p>
+    </div>
+  </section>
+
+  <!-- Tentang -->
   <section id="tentang">
     <h2>Tentang Kami</h2>
-    <p>
-      UMKM Taruna Jaya memproduksi berbagai olahan singkong berkualitas, 
-      mulai dari keripik singkong, getuk, hingga tape singkong. 
-      Semua produk dibuat dari bahan segar pilihan tanpa bahan pengawet, 
-      sehingga aman dan nikmat untuk dikonsumsi.
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Kami adalah UMKM yang berfokus pada produksi olahan singkong berkualitas. 
+      Produk kami 100% alami tanpa bahan pengawet, diproses dengan higienis, dan 
+      sudah dipercaya oleh banyak pelanggan. Cocok untuk camilan keluarga maupun oleh-oleh.
     </p>
   </section>
 
-  <!-- KATALOG -->
+  <!-- Katalog -->
   <section id="katalog">
     <h2>Katalog Produk</h2>
     <div class="produk-container">
@@ -179,37 +100,57 @@
         <img src="images/keripik.jpg" alt="Keripik Singkong">
         <h3>Keripik Singkong</h3>
         <p>Renyah, gurih, cocok untuk camilan harian.</p>
-        <span class="harga">Rp 15.000</span>
+        <span class="harga">Rp 15.000</span><br>
+        <a class="btn-wa" href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Keripik%20Singkong%20seharga%20Rp15.000" target="_blank">Pesan via WA</a>
       </div>
       <div class="produk">
         <img src="images/getuk.jpg" alt="Getuk Singkong">
         <h3>Getuk Singkong</h3>
         <p>Manis dan lembut, cocok sebagai hidangan keluarga.</p>
-        <span class="harga">Rp 10.000</span>
+        <span class="harga">Rp 10.000</span><br>
+        <a class="btn-wa" href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Getuk%20Singkong%20seharga%20Rp10.000" target="_blank">Pesan via WA</a>
       </div>
       <div class="produk">
         <img src="images/tape.jpg" alt="Tape Singkong">
         <h3>Tape Singkong</h3>
         <p>Manis sedikit asam, segar dan sehat.</p>
-        <span class="harga">Rp 12.000</span>
+        <span class="harga">Rp 12.000</span><br>
+        <a class="btn-wa" href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Tape%20Singkong%20seharga%20Rp12.000" target="_blank">Pesan via WA</a>
       </div>
     </div>
   </section>
 
-  <!-- PEMESANAN -->
+  <!-- Pemesanan -->
   <section id="pesan">
-    <h2>Pemesanan Online</h2>
-    <form>
-      <input type="text" placeholder="Nama Anda" required>
-      <input type="text" placeholder="Produk yang dipesan" required>
-      <input type="number" placeholder="Jumlah" required>
-      <button type="submit">Pesan Sekarang</button>
+    <h2>Pemesanan Custom</h2>
+    <form onsubmit="return pesanWA(event)">
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+      <input type="text" id="produk" placeholder="Produk yang dipesan" required>
+      <input type="number" id="jumlah" placeholder="Jumlah" required>
+      <button type="submit">Pesan via WhatsApp</button>
     </form>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 UMKM Singkong Taruna Jaya</p>
+    <p>Hubungi kami: <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a> | 
+    <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
   </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById("navbar").classList.toggle("active");
+    }
+    function pesanWA(e){
+      e.preventDefault();
+      let nama = document.getElementById("nama").value;
+      let produk = document.getElementById("produk").value;
+      let jumlah = document.getElementById("jumlah").value;
+      let nomor = "6281234567890"; // ganti nomor WA disini
+      let url = `https://wa.me/${nomor}?text=Halo,%20saya%20${nama}%20ingin%20pesan%20${produk}%20sebanyak%20${jumlah}`;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>
