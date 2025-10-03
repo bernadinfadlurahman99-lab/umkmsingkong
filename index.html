@@ -4,7 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UMKM Singkong Taruna Jaya</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ff9800;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #ff5722;
+    }
+
+    /* Tentang */
+    #tentang p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    /* Katalog */
+    .produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .produk {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .produk:hover {
+      transform: translateY(-5px);
+    }
+
+    .produk img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .produk h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .produk p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .harga {
+      display: block;
+      font-weight: bold;
+      color: #ff5722;
+      font-size: 18px;
+    }
+
+    /* Pemesanan */
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    form input, form button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    form button {
+      background: #ff9800;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #e68900;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,11 +160,18 @@
     </nav>
   </header>
 
+  <!-- TENTANG -->
   <section id="tentang">
     <h2>Tentang Kami</h2>
-    <p>Kami memproduksi berbagai olahan singkong berkualitas, tanpa bahan pengawet.</p>
+    <p>
+      UMKM Taruna Jaya memproduksi berbagai olahan singkong berkualitas, 
+      mulai dari keripik singkong, getuk, hingga tape singkong. 
+      Semua produk dibuat dari bahan segar pilihan tanpa bahan pengawet, 
+      sehingga aman dan nikmat untuk dikonsumsi.
+    </p>
   </section>
 
+  <!-- KATALOG -->
   <section id="katalog">
     <h2>Katalog Produk</h2>
     <div class="produk-container">
@@ -45,8 +196,9 @@
     </div>
   </section>
 
+  <!-- PEMESANAN -->
   <section id="pesan">
-    <h2>Pemesanan</h2>
+    <h2>Pemesanan Online</h2>
     <form>
       <input type="text" placeholder="Nama Anda" required>
       <input type="text" placeholder="Produk yang dipesan" required>
@@ -55,6 +207,7 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 UMKM Singkong Taruna Jaya</p>
   </footer>
