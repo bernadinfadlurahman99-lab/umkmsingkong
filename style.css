@@ -1,75 +1,63 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f9f9f9;
-  color: #333;
+/* Reset & dasar */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Poppins', sans-serif; background:#f4f5f7; color:#333; line-height:1.6; scroll-behavior:smooth;}
+a {text-decoration:none;}
+
+/* Header */
+header {background:#1abc9c; color:white; padding:20px 0; text-align:center; position:sticky; top:0; z-index:1000; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+header h1 {font-size:28px; font-weight:700;}
+
+/* Navigation */
+nav {margin-top:10px;}
+nav a {color:white; margin:0 15px; font-weight:600; transition:color 0.3s;}
+nav a:hover, nav a.active {color:#16a085;}
+
+/* Hamburger */
+.menu-toggle {display:none; flex-direction:column; cursor:pointer; position:absolute; top:20px; right:20px; z-index:1001;}
+.bar {height:3px; width:25px; background:white; margin:4px 0; transition:0.3s;}
+@media(max-width:768px){
+  nav {display:none; flex-direction:column; background:#1abc9c; width:100%; text-align:center;}
+  nav.active {display:flex;}
+  .menu-toggle {display:flex;}
 }
 
-header {
-  background: #28a745;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
+/* Hero */
+.hero {background:url('images/banner.jpg') no-repeat center/cover; height:70vh; display:flex; align-items:center; justify-content:center; text-align:center; color:white; position:relative;}
+.hero::after {content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4);}
+.hero div {position:relative; z-index:1;}
+.hero h2 {font-size:40px; margin-bottom:10px;}
+.hero p {font-size:20px;}
 
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
+/* Section */
+section {padding:60px 20px; max-width:1200px; margin:auto;}
+section h2 {font-size:32px; text-align:center; color:#1abc9c; margin-bottom:40px;}
 
-section {
-  padding: 40px 20px;
-}
+/* Produk */
+.produk-container {display:flex; flex-wrap:wrap; gap:25px; justify-content:center;}
+.produk {background:white; padding:20px; border-radius:15px; width:260px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;}
+.produk:hover {transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15);}
+.produk img {width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:15px;}
+.produk h3 {font-size:20px; margin-bottom:10px; color:#333;}
+.produk p {font-size:14px; color:#666; margin-bottom:15px;}
+.harga {font-weight:700; color:#1abc9c; margin-bottom:15px;}
 
-.produk-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+/* Tombol WA */
+.btn-wa {display:inline-block; padding:10px 20px; background:#25d366; color:white; border-radius:8px; font-weight:600; transition:0.3s;}
+.btn-wa:hover {background:#20b857; transform:scale(1.05);}
 
-.produk {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+/* Form */
+form {max-width:450px; margin:auto; display:flex; flex-direction:column; gap:15px;}
+form input, form button {padding:12px; border-radius:8px; border:1px solid #ccc; font-size:16px;}
+form input:focus {border-color:#1abc9c; outline:none; box-shadow:0 0 5px rgba(26,188,156,0.3);}
+form button {background:#1abc9c; color:white; font-weight:700; cursor:pointer; border:none; transition:background 0.3s, transform 0.3s;}
+form button:hover {background:#16a085; transform:translateY(-2px);}
 
-.produk img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-}
+/* Footer */
+footer {background:#333; color:white; text-align:center; padding:30px 20px;}
+footer a {color:#1abc9c; margin:0 8px;}
+footer a:hover {text-decoration:underline;}
 
-.harga {
-  font-weight: bold;
-  color: #28a745;
-}
-
-form {
-  max-width: 400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-form input, form button {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-form button {
-  background: #28a745;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-form button:hover {
-  background: #218838;
+/* Responsif */
+@media(max-width:768px){
+  .produk-container {flex-direction:column; align-items:center;}
 }
