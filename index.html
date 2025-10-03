@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMKM Singkong Taruna Jaya</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <h1>UMKM Singkong Taruna Jaya</h1>
+    <nav>
+      <a href="#deskripsi">Tentang</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#pesan">Pemesanan</a>
+    </nav>
+  </header>
+
+  <section id="deskripsi">
+    <h2>Tentang Kami</h2>
+    <p>
+      UMKM Taruna Jaya memproduksi berbagai olahan singkong berkualitas, 
+      mulai dari keripik singkong, getuk, hingga tape singkong. 
+      Produk kami dibuat dari bahan segar pilihan, tanpa bahan pengawet, 
+      sehingga aman dan nikmat untuk dikonsumsi.
+    </p>
+  </section>
+
+  <section id="katalog">
+    <h2>Katalog Produk</h2>
+    <div class="produk-container">
+      <div class="produk">
+        <img src="images/keripik.jpg" alt="Keripik Singkong">
+        <h3>Keripik Singkong</h3>
+        <p>Renyah, gurih, cocok untuk camilan harian.</p>
+        <span class="harga">Rp 15.000</span>
+      </div>
+      <div class="produk">
+        <img src="images/getuk.jpg" alt="Getuk Singkong">
+        <h3>Getuk Singkong</h3>
+        <p>Manis dan lembut, cocok sebagai hidangan keluarga.</p>
+        <span class="harga">Rp 10.000</span>
+      </div>
+      <div class="produk">
+        <img src="images/tape.jpg" alt="Tape Singkong">
+        <h3>Tape Singkong</h3>
+        <p>Manis sedikit asam, segar dan sehat.</p>
+        <span class="harga">Rp 12.000</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="pesan">
+    <h2>Pemesanan Online</h2>
+    <form id="formPesan">
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+      <input type="text" id="produk" placeholder="Produk yang dipesan" required>
+      <input type="number" id="jumlah" placeholder="Jumlah Pesanan" required>
+      <button type="submit">Pesan Sekarang</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 UMKM Singkong Taruna Jaya</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
