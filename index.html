@@ -6,18 +6,100 @@
   <title>UMKM Singkong Taruna Jaya</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    /* Reset & styling dasar */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; }
+
+    header {
+      background: #28a745;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover { color: yellow; }
+
+    section {
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Katalog produk */
+    .produk-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .produk {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .produk:hover { transform: scale(1.05); }
+    .produk img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .harga { font-weight: bold; color: #28a745; }
+
+    /* Form */
+    form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: auto; }
+    input, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #218838; }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>UMKM Singkong Taruna Jaya</h1>
     <nav>
-      <a href="#deskripsi">Tentang</a>
-      <a href="#katalog">Katalog</a>
-      <a href="#pesan">Pemesanan</a>
+      <a href="#" onclick="showSection('home')">Tentang</a>
+      <a href="#" onclick="showSection('katalog')">Katalog</a>
+      <a href="#" onclick="showSection('pesan')">Pemesanan</a>
     </nav>
   </header>
 
-  <section id="deskripsi">
+  <!-- Halaman Tentang -->
+  <section id="home" class="active">
     <h2>Tentang Kami</h2>
     <p>
       UMKM Taruna Jaya memproduksi berbagai olahan singkong berkualitas, 
@@ -27,6 +109,7 @@
     </p>
   </section>
 
+  <!-- Halaman Katalog -->
   <section id="katalog">
     <h2>Katalog Produk</h2>
     <div class="produk-container">
@@ -34,23 +117,27 @@
         <img src="images/keripik.jpg" alt="Keripik Singkong">
         <h3>Keripik Singkong</h3>
         <p>Renyah, gurih, cocok untuk camilan harian.</p>
-        <span class="harga">Rp 15.000</span>
+        <span class="harga">Rp 15.000</span><br>
+        <button onclick="pesanProduk('Keripik Singkong')">Beli Sekarang</button>
       </div>
       <div class="produk">
         <img src="images/getuk.jpg" alt="Getuk Singkong">
         <h3>Getuk Singkong</h3>
         <p>Manis dan lembut, cocok sebagai hidangan keluarga.</p>
-        <span class="harga">Rp 10.000</span>
+        <span class="harga">Rp 10.000</span><br>
+        <button onclick="pesanProduk('Getuk Singkong')">Beli Sekarang</button>
       </div>
       <div class="produk">
         <img src="images/tape.jpg" alt="Tape Singkong">
         <h3>Tape Singkong</h3>
         <p>Manis sedikit asam, segar dan sehat.</p>
-        <span class="harga">Rp 12.000</span>
+        <span class="harga">Rp 12.000</span><br>
+        <button onclick="pesanProduk('Tape Singkong')">Beli Sekarang</button>
       </div>
     </div>
   </section>
 
+  <!-- Halaman Pemesanan -->
   <section id="pesan">
     <h2>Pemesanan Online</h2>
     <form id="formPesan">
@@ -65,6 +152,35 @@
     <p>&copy; 2025 UMKM Singkong Taruna Jaya</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Ganti halaman
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    // Auto isi produk jika klik "Beli Sekarang"
+    function pesanProduk(namaProduk) {
+      showSection("pesan");
+      document.getElementById("produk").value = namaProduk;
+    }
+
+    // Handle Form
+    document.getElementById("formPesan").addEventListener("submit", function(e){
+      e.preventDefault();
+      let nama = document.getElementById("nama").value;
+      let produk = document.getElementById("produk").value;
+      let jumlah = document.getElementById("jumlah").value;
+
+      Swal.fire({
+        title: "Pesanan Berhasil!",
+        html: `<b>${nama}</b>, pesanan <b>${produk}</b> sebanyak <b>${jumlah}</b> berhasil dicatat.`,
+        icon: "success",
+        confirmButtonText: "OK"
+      });
+      this.reset();
+    });
+  </script>
 </body>
 </html>
+
