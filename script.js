@@ -7,10 +7,12 @@ document.getElementById("formPesan").addEventListener("submit", function(e) {
 
   Swal.fire({
     title: "Pesanan Berhasil!",
-    html: `Terima kasih, <b>${nama}</b>.<br>Pesanan: <b>${produk}</b> (x${jumlah}) sudah diterima.`,
+    html: `<b>${nama}</b>, pesanan Anda untuk <b>${jumlah} ${produk}</b> sudah kami terima.`,
     icon: "success",
-    confirmButtonColor: "#28a745"
+    confirmButtonText: "OK",
+    confirmButtonColor: "#f57c00"
   });
 
-  this.reset();
+  document.getElementById("formPesan").reset();
 });
+
